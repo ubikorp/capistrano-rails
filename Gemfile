@@ -50,3 +50,4 @@ group :development do
   gem "capistrano-sidekiq", github: "seuros/capistrano-sidekiq", require: false
   gem "capistrano3-puma", github: "seuros/capistrano-puma", require: false
 end
+gem "falcon", "~> 0.52.3"
