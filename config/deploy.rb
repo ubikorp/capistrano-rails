@@ -2,7 +2,7 @@ require 'dotenv'
 Dotenv.load
 
 set :application, 'sample_app'
-set :repo_url, 'git@github.com:seuros/capistrano-example-app.git'
+set :repo_url, 'git@github.com:ubikorp/capistrano-rails.git'
 
 server ENV.fetch('TESTING_SERVER'), user: 'deploy', roles: %w[app web worker]
 
@@ -35,6 +35,6 @@ set :bundle_without, %w[development test].join(' ')
 
 # Puma configuration
 set :puma_use_login_shell, true
-set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"
+# set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"
 
 set :ssh_options, verify_host_key: :never
