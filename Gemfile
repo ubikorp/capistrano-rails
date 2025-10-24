@@ -4,14 +4,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem "dotenv-rails", require: "dotenv/load"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-rails_version = "~> 8.0.0"
+rails_version = "~> 8.0.2"
 gem "railties", rails_version
 gem "actionpack", rails_version
 gem "puma", "~> 6.0"
 group :production do
   gem "sd_notify" ## This is for systemd
 end
-gem "sidekiq", "~> 7.0"
+# gem "sidekiq", "~> 7.0"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -47,7 +47,8 @@ group :development do
   gem "capistrano", require: false
   gem "capistrano-rbenv", require: false
   gem "capistrano-bundler", require: false
-  gem "capistrano-sidekiq", github: "seuros/capistrano-sidekiq", require: false
+  # gem "capistrano-sidekiq", github: "seuros/capistrano-sidekiq", require: false
   gem "capistrano3-puma", github: "seuros/capistrano-puma", require: false
 end
+
 gem "falcon", "~> 0.52.3"

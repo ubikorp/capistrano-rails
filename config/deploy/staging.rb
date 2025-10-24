@@ -24,16 +24,16 @@ set :puma_service_unit_type, :notify
 set :puma_systemctl_user, :user
 
 # Sidekiq configuration (single process for staging)
-set :sidekiq_config_files, %w[sidekiq.yml]
-set :sidekiq_env, 'production'
-set :sidekiq_log, "#{shared_path}/log/sidekiq.log"
-set :sidekiq_error_log, "#{shared_path}/log/sidekiq_error.log"
-set :sidekiq_systemctl_user, :user
-set :sidekiq_service_unit_env_vars, ["MALLOC_ARENA_MAX=2", "VERBOSE=1"]
+# set :sidekiq_config_files, %w[sidekiq.yml]
+# set :sidekiq_env, 'production'
+# set :sidekiq_log, "#{shared_path}/log/sidekiq.log"
+# set :sidekiq_error_log, "#{shared_path}/log/sidekiq_error.log"
+# set :sidekiq_systemctl_user, :user
+# set :sidekiq_service_unit_env_vars, ["MALLOC_ARENA_MAX=2", "VERBOSE=1"]
 
 # Enable deployment tracking in staging
-set :sidekiq_mark_deploy, true
-set :sidekiq_deploy_label, -> { "staging-#{fetch(:current_revision, 'unknown')[0..6]}" }
+# set :sidekiq_mark_deploy, true
+# set :sidekiq_deploy_label, -> { "staging-#{fetch(:current_revision, 'unknown')[0..6]}" }
 
 # Linked files and directories
 append :linked_files, '.env.staging', 'config/database.yml', 'config/master.key'

@@ -8,10 +8,10 @@ set :rails_env, 'production'
 server ENV.fetch('TESTING_SERVER'), user: "deploy", roles: %w{app web worker}
 
 # Optional: Second server for load balancing or dedicated workers
-if ENV['TESTING_SERVER2'] && !ENV['TESTING_SERVER2'].empty?
-  server ENV['TESTING_SERVER2'], user: "deploy", roles: %w{worker}, 
-    sidekiq_config_files: %w[sidekiq-process2.yml]
-end
+# if ENV['TESTING_SERVER2'] && !ENV['TESTING_SERVER2'].empty?
+#   server ENV['TESTING_SERVER2'], user: "deploy", roles: %w{worker}, 
+#     sidekiq_config_files: %w[sidekiq-process2.yml]
+# end
 
 # Puma configuration
 set :puma_bind, ["unix://#{shared_path}/tmp/sockets/puma.sock", "tcp://127.0.0.1:9292"]
@@ -27,17 +27,17 @@ set :puma_systemctl_user, :user      # User-level systemd service
 set :puma_enable_socket_service, true # Enable socket activation
 
 # Sidekiq configuration
-set :sidekiq_config_files, %w[sidekiq.yml sidekiq-process2.yml]
-set :sidekiq_env, 'production'
-set :sidekiq_log, "#{shared_path}/log/sidekiq.log"
-set :sidekiq_error_log, "#{shared_path}/log/sidekiq_error.log"
-set :sidekiq_systemctl_user, :user    # User-level systemd service
-set :sidekiq_service_unit_env_files, ["#{shared_path}/.env.production"]
-set :sidekiq_service_unit_env_vars, ["MALLOC_ARENA_MAX=2"] # Memory optimization
+# set :sidekiq_config_files, %w[sidekiq.yml sidekiq-process2.yml]
+# set :sidekiq_env, 'production'
+# set :sidekiq_log, "#{shared_path}/log/sidekiq.log"
+# set :sidekiq_error_log, "#{shared_path}/log/sidekiq_error.log"
+# set :sidekiq_systemctl_user, :user    # User-level systemd service
+# set :sidekiq_service_unit_env_files, ["#{shared_path}/.env.production"]
+# set :sidekiq_service_unit_env_vars, ["MALLOC_ARENA_MAX=2"] # Memory optimization
 
 # Deployment tracking for Sidekiq 7+
-set :sidekiq_mark_deploy, true
-set :sidekiq_deploy_label, -> { "#{fetch(:stage)}-#{fetch(:current_revision, 'unknown')[0..6]}" }
+# set :sidekiq_mark_deploy, true
+# set :sidekiq_deploy_label, -> { "#{fetch(:stage)}-#{fetch(:current_revision, 'unknown')[0..6]}" }
 
 # Linked files and directories
 append :linked_files, '.env.production', 'config/database.yml', 'config/master.key'

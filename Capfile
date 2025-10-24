@@ -12,9 +12,9 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
 
-require 'capistrano/sidekiq'
-install_plugin Capistrano::Sidekiq
-install_plugin Capistrano::Sidekiq::Systemd
+# require 'capistrano/sidekiq'
+# install_plugin Capistrano::Sidekiq
+# install_plugin Capistrano::Sidekiq::Systemd
 
 require 'capistrano/puma'
 install_plugin Capistrano::Puma

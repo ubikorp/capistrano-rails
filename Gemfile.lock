@@ -7,15 +7,6 @@ GIT
       capistrano-bundler
       puma (>= 6.1, < 8.0)
 
-GIT
-  remote: https://github.com/seuros/capistrano-sidekiq.git
-  revision: 61197c92de3556460f86b82715c62c0d78d65295
-  specs:
-    capistrano-sidekiq (3.2.0)
-      capistrano (>= 3.9.0)
-      capistrano-bundler
-      sidekiq (>= 7.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -262,8 +253,6 @@ GEM
     rdoc (6.14.1)
       erb
       psych (>= 4.0.0)
-    redis-client (0.25.0)
-      connection_pool
     reline (0.6.1)
       io-console (~> 0.5)
     rexml (3.4.1)
@@ -289,12 +278,6 @@ GEM
     shoulda-context (2.0.0)
     shoulda-matchers (4.5.1)
       activesupport (>= 4.2.0)
-    sidekiq (7.3.9)
-      base64
-      connection_pool (>= 2.3.0)
-      logger
-      rack (>= 2.2.4)
-      redis-client (>= 0.22.2)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -374,11 +357,10 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  actionpack (~> 8.0.0)
+  actionpack (~> 8.0.2)
   capistrano
   capistrano-bundler
   capistrano-rbenv
-  capistrano-sidekiq!
   capistrano3-puma!
   database_cleaner
   debug
@@ -392,13 +374,12 @@ DEPENDENCIES
   mocha
   puma (~> 6.0)
   rails_app_version
-  railties (~> 8.0.0)
+  railties (~> 8.0.2)
   ruby-prof
   sd_notify
   selenium-webdriver
   shoulda (= 4.0.0)
   shoulda-matchers
-  sidekiq (~> 7.0)
   simplecov
   simplecov-console
   simplecov-db
