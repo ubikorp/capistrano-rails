@@ -2,12 +2,12 @@ require 'dotenv'
 Dotenv.load
 
 set :application, 'sample_app'
-set :repo_url, 'git@github.com:seuros/capistrano-example-app.git'
+set :repo_url, 'git@github.com:ubikorp/capistrano-rails.git'
 
 server ENV.fetch('TESTING_SERVER'), user: 'deploy', roles: %w[app web worker]
 
 set :deploy_to, -> { "/home/deploy/#{fetch(:stage)}" }
-set :branch, :main
+set :branch, :testing
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', '.bundle'
 
